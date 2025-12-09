@@ -1,0 +1,196 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "custom_timeline_ezYePr": {
+      "type": "custom-timeline",
+      "blocks": {
+        "item_rqk3wB": {
+          "type": "item",
+          "settings": {
+            "label": "Phase 1",
+            "icon": "bolt",
+            "position": "left",
+            "content_alignment": "left",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Praesent sapien massa, convallis a pellentesque nec."
+          }
+        },
+        "item_VRNGUG": {
+          "type": "item",
+          "settings": {
+            "label": "Phase 2",
+            "icon": "sun",
+            "position": "right",
+            "content_alignment": "left",
+            "text": "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus."
+          }
+        },
+        "item_HtQBYM": {
+          "type": "item",
+          "settings": {
+            "label": "Phase 3",
+            "icon": "chevrons",
+            "position": "left",
+            "content_alignment": "left",
+            "text": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat."
+          }
+        },
+        "item_BdnH8g": {
+          "type": "item",
+          "settings": {
+            "label": "Phase 4",
+            "icon": "star",
+            "position": "right",
+            "content_alignment": "left",
+            "text": "Cras ultricies ligula sed magna dictum porta. Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia."
+          }
+        },
+        "item_PcLMBY": {
+          "type": "item",
+          "settings": {
+            "label": "Complete",
+            "icon": "trophy",
+            "position": "left",
+            "content_alignment": "left",
+            "text": "Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Quisque velit nisi, pretium ut lacinia in, elementum id enim."
+          }
+        }
+      },
+      "block_order": [
+        "item_rqk3wB",
+        "item_VRNGUG",
+        "item_HtQBYM",
+        "item_BdnH8g",
+        "item_PcLMBY"
+      ],
+      "name": "Timeline",
+      "settings": {
+        "heading": "Our Journey",
+        "heading_size": "h0",
+        "description": "<p>Share your brand story and key milestones with a beautiful timeline</p>",
+        "content_alignment": "center",
+        "section_color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "swiper_section_PnKGNN": {
+      "type": "Swiper-section",
+      "blocks": {
+        "image_picker_afU7xK": {
+          "type": "image_picker",
+          "settings": {
+            "first_image": "shopify://shop_images/modern-coffee-mug.png",
+            "second_image": "shopify://shop_images/image_b45bb91b-6dc0-40b1-bdfa-7c33bc2af161.png",
+            "multi_img_caption": "{{ metaobjects.image_title.fdsfd.title.value }}",
+            "block_heading": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "multi_img_content": "<p><strong>Lorem Ipsum</strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/></p>"
+          }
+        },
+        "image_picker_cUeP97": {
+          "type": "image_picker",
+          "settings": {
+            "first_image": "shopify://shop_images/image_b45bb91b-6dc0-40b1-bdfa-7c33bc2af161.png",
+            "second_image": "shopify://shop_images/pexels-andrea-piacquadio-3756681-scaled-1-1.webp",
+            "multi_img_caption": "",
+            "block_heading": "",
+            "multi_img_content": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_afU7xK",
+        "image_picker_cUeP97"
+      ],
+      "name": "multi image with text",
+      "settings": {
+        "multi_text_heading": "",
+        "multi_text_background_color": "#121212",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 52
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "custom_timeline_ezYePr",
+    "swiper_section_PnKGNN"
+  ]
+}

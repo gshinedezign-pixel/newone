@@ -1,0 +1,204 @@
+<style>
+  .muiti-img-text-main-section{
+    padding-top:{{ section.settings.padding_top }}px;
+    padding-bottom:{{ section.settings.padding_bottom }}px;
+  }
+
+   @media (max-width: 749px) {
+      .muiti-img-text-main-section{
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+    }
+
+  /* Swiper Styles */
+  .swiper-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #000;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 24px;
+  }
+</style>
+
+<!-- Swiper CSS CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<div class="muiti-img-text-main-section" style="background:{{ section.settings.multi_text_background_color }};">
+  <div class="page-width">
+    <div class="inner">
+      {% if section.settings.multi_text_heading != blank %}
+        <h2>{{ section.settings.multi_text_heading }}</h2>
+      {% endif %}
+      
+      {% if section.blocks.size > 1 %}
+        <div class="swiper-container inner_content">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              <div class="swiper-slide block_content">
+                <div class="images_content">
+                  {% if block.settings.first_image != blank %}
+                    <div class="first_img">
+                      <img src="{{ block.settings.first_image | img_url: 'master'}}">
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.second_image != blank %}
+                    <div class="secong_img">
+                      <img src="{{ block.settings.second_image | img_url: 'master'}}">
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="text_content">
+                  <div class="text_content_inner">
+                    {% if block.settings.multi_img_caption != blank %}
+                      <p class="caption-text">{{ block.settings.multi_img_caption }}</p>
+                    {% endif %}
+
+                    {% if block.settings.block_heading != blank %}
+                      <h2>{{ block.settings.block_heading }}</h2>
+                    {% endif %}
+
+                    {% if block.settings.multi_img_content != blank %}
+                      <div class="text_content_dis">{{ block.settings.multi_img_content }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          
+          <!-- Navigation buttons -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Swiper JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    {% if section.blocks.size > 1 %}
+      const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        loop: false,
+        autoplay: false,
+      });
+    {% endif %}
+  });
+</script>
+
+{% schema %}
+{
+  "name": "multi image with text",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+     "type":"text",
+     "id": "multi_text_heading",
+     "label": "heading"
+    },
+    {
+    "type": "color",
+    "id":"multi_text_background_color",
+    "label":"background color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_picker",
+      "name":"image with text",
+      "settings": [
+        {
+          "type":"image_picker",
+          "id":"first_image",
+          "label": "first curved image"
+        },
+        {
+          "type":"image_picker",
+          "id":"second_image",
+          "label": "second image"
+        },
+        {
+          "type": "text",
+          "id": "multi_img_caption",
+          "label": "t:sections.rich-text.blocks.caption.settings.text.label"
+        },
+        {
+          "type":"html",
+          "id":"block_heading",
+          "label":"heading"
+        },
+        {
+          "type": "richtext",
+          "id":"multi_img_content",
+          "label":"text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "multi image with text"
+    }
+  ]
+}
+{% endschema %}
