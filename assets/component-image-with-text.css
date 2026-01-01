@@ -1,3 +1,4 @@
+/* Image with Text Base Styles */
 .image-with-text .grid {
   margin-bottom: 0;
 }
@@ -241,60 +242,6 @@
     flex-grow: 0;
   }
 
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .grid:not(.image-with-text__grid--reverse)
-    .image-with-text__media-item:after,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .grid:not(.image-with-text__grid--reverse)
-    .image-with-text__media,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .grid:not(.image-with-text__grid--reverse)
-    .image-with-text__media
-    img,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .grid:not(.image-with-text__grid--reverse)
-    .image-with-text__media
-    .placeholder-svg,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .image-with-text__grid--reverse
-    .image-with-text__text-item:after,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .image-with-text__grid--reverse
-    .image-with-text__content,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .image-with-text__grid--reverse
-    .image-with-text__content:after {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .grid:not(.image-with-text__grid--reverse)
-    .image-with-text__text-item:after,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .grid:not(.image-with-text__grid--reverse)
-    .image-with-text__content,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .grid:not(.image-with-text__grid--reverse)
-    .image-with-text__content:after,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .image-with-text__grid--reverse
-    .image-with-text__media-item:after,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .image-with-text__grid--reverse
-    .image-with-text__media,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .image-with-text__grid--reverse
-    .image-with-text__media
-    img,
-  .image-with-text.collapse-corners:not(.image-with-text--overlap)
-    .image-with-text__grid--reverse
-    .image-with-text__media
-    .placeholder-svg {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
   .image-with-text.collapse-borders:not(.image-with-text--overlap)
     .grid:not(.image-with-text__grid--reverse)
     .image-with-text__content {
@@ -312,13 +259,11 @@
   z-index: 2;
 }
 
-/* Needed for gradient continuity with or without animation so that transparent PNG images come up as we would expect */
 .image-with-text.image-with-text--overlap .backround-transparent,
 .image-with-text:not(.image-with-text--overlap) .background-transparent {
   background: transparent;
 }
 
-/* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
 .image-with-text .gradient {
   transform: perspective(0);
 }
@@ -393,17 +338,12 @@
   }
 }
 
-/* check for flexbox gap in older Safari versions */
 @supports not (inset: 10px) {
   .image-with-text .grid {
     margin-left: 0;
   }
 }
 
-/*
-  Multirow
-  note: consider removing from this stylesheet if multirow-specific styles increase signficantly
-*/
 .multirow__inner {
   display: flex;
   flex-direction: column;
@@ -415,3 +355,23 @@
     row-gap: var(--grid-desktop-vertical-spacing);
   }
 }
+
+/* Section Title Styling */
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 26%;
+  width: 48%;
+  bottom: -6px;
+  height: 2px;
+  background: #c9a24a;
+  border-radius: 2px;
+} 

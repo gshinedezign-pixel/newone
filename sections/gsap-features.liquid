@@ -1,0 +1,636 @@
+<style>
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+
+    .hero-content {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #94a3b8;
+    }
+
+    .scroll-arrow {
+      margin-top: 2rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    .scroll-section {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .content-wrapper {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
+    .text-container {
+      flex: 1;
+      padding: 5rem 0;
+    }
+
+    .text-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      opacity: 0.3;
+    }
+
+    .section-number {
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .text-section h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .text-section p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+
+    .image-container {
+      flex: 1;
+      position: relative;
+    }
+
+    .sticky-wrapper {
+      position: sticky;
+      top: 10vh;
+      height: 80vh;
+    }
+
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .image-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    .image-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+    }
+
+    .overlay-1 { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
+    .overlay-2 { background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%); }
+    .overlay-3 { background: linear-gradient(135deg, #ec4899 0%, #ef4444 100%); }
+    .overlay-4 { background: linear-gradient(135deg, #ef4444 0%, #f97316 100%); }
+
+    .progress-dots {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transition: all 0.3s;
+    }
+
+    .dot.active {
+      width: 3rem;
+      border-radius: 1rem;
+      background: white;
+    }
+
+    .footer {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+    }
+
+    .footer p {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #94a3b8;
+    }
+
+    @media (max-width: 1024px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+
+      .sticky-wrapper {
+        position: relative;
+        top: 0;
+        height: 60vh;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Scroll करें और देखें</h1>
+      <p>नीचे scroll करते जाएं, image बदलती जाएगी</p>
+      <div class="scroll-arrow">
+        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Section -->
+  <div class="scroll-section">
+    <div class="container">
+      <div class="content-wrapper">
+        <!-- Left Side - Text Content -->
+        <div class="text-container">
+          <div class="text-section" data-index="0">
+            <div>
+              <span class="section-number">01</span>
+              <h2>Modern Design</h2>
+              <p>Experience cutting-edge design that combines aesthetics with functionality. Our modern approach ensures your product stands out.</p>
+            </div>
+          </div>
+
+          <div class="text-section" data-index="1">
+            <div>
+              <span class="section-number">02</span>
+              <h2>Powerful Features</h2>
+              <p>Unlock powerful features that streamline your workflow. Built with performance and reliability in mind.</p>
+            </div>
+          </div>
+
+          <div class="text-section" data-index="2">
+            <div>
+              <span class="section-number">03</span>
+              <h2>Seamless Integration</h2>
+              <p>Integrate seamlessly with your existing tools and platforms. No complicated setup required.</p>
+            </div>
+          </div>
+
+          <div class="text-section" data-index="3">
+            <div>
+              <span class="section-number">04</span>
+              <h2>24/7 Support</h2>
+              <p>Get help whenever you need it. Our dedicated support team is always ready to assist you.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Sticky Images -->
+        <div class="image-container">
+          <div class="sticky-wrapper">
+            <div class="image-wrapper">
+              <div class="image-slide" data-index="0">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop" alt="Modern Design">
+                <div class="image-overlay overlay-1"></div>
+              </div>
+
+              <div class="image-slide" data-index="1">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Powerful Features">
+                <div class="image-overlay overlay-2"></div>
+              </div>
+
+              <div class="image-slide" data-index="2">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Seamless Integration">
+                <div class="image-overlay overlay-3"></div>
+              </div>
+
+              <div class="image-slide" data-index="3">
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop" alt="24/7 Support">
+                <div class="image-overlay overlay-4"></div>
+              </div>
+
+              <!-- Progress Dots -->
+              <div class="progress-dots">
+                <div class="dot" data-dot="0"></div>
+                <div class="dot" data-dot="1"></div>
+                <div class="dot" data-dot="2"></div>
+                <div class="dot" data-dot="3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>
+      <h2>Scroll Experience Complete!</h2>
+      <p>कैसा लगा? 🎉</p>
+    </div>
+  </div>
+
+  <script>
+    // Register GSAP ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Get all text sections and image slides
+    const textSections = document.querySelectorAll('.text-section');
+    const imageSlides = document.querySelectorAll('.image-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    // Function to update active states
+    function updateActive(index) {
+      // Update images
+      imageSlides.forEach((slide, i) => {
+        if (i === index) {
+          gsap.to(slide, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: "power2.out"
+          });
+        } else {
+          gsap.to(slide, {
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.8,
+            ease: "power2.out"
+          });
+        }
+      });
+
+      // Update dots
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    // Create ScrollTrigger for each text section
+    textSections.forEach((section, index) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => {
+          // Animate text section in
+          gsap.to(section, {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+          updateActive(index);
+        },
+        onEnterBack: () => {
+          // Animate text section in (scrolling back)
+          gsap.to(section, {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+          updateActive(index);
+        },
+        onLeave: () => {
+          // Animate text section out
+          gsap.to(section, {
+            opacity: 0.3,
+            x: -50,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+        },
+        onLeaveBack: () => {
+          // Animate text section out (scrolling back)
+          gsap.to(section, {
+            opacity: 0.3,
+            x: 50,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+        }
+      });
+    });
+
+    // Initial state - show first image
+    updateActive(0);
+
+    // Hero section animation
+    gsap.from('.hero-content h1', {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
+    });
+
+    gsap.from('.hero-content p', {
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      delay: 0.3,
+      ease: "power3.out"
+    });
+
+    gsap.from('.scroll-arrow', {
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      delay: 0.6,
+      ease: "power3.out"
+    });
+  </script>
+
+{% schema %}
+{
+  "name": "Feature Cards",
+  "tag": "section", 
+  "class": "section feature-cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Amazing Features"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover what makes us special"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "min": 24,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Desktop Columns",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Gap Between Cards",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Card Style"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card Padding",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Corner Radius",
+      "min": 0,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Border Color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "header",
+      "content": "Icon"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon Size",
+      "min": 40,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#111111"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Add your feature description here"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "btn_bg",
+          "label": "Button Color",
+          "default": "#111111"
+        },
+        {
+          "type": "color",
+          "id": "btn_text_color",
+          "label": "Button Text Color",
+          "default": "#ffffff"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Cards",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Fast Delivery",
+            "text": "Quick delivery to your doorstep"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Premium Quality",
+            "text": "Highest quality products"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "24/7 Support",
+            "text": "Always here to help you"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
